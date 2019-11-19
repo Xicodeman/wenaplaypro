@@ -26,41 +26,63 @@ $method = $this->uri->segment(2);
 	<div class="app">
 
 		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand" href="#"> <img src="<?= base_url('assets/images/logo.svg') ?>" height="45px" draggable="false"> <span class="logo-text"> WenaPlay </span> </a>
+			<a class="navbar-brand" href="<?= base_url() ?>"> <img src="<?= base_url('assets/images/logo.svg') ?>" height="45px" draggable="false"> <span class="logo-text"> WenaPlay </span> </a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url() ?>">Home</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('register') ?>">Register</a>					
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('register/player') ?>">Register Player</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('register/agent') ?>">Register Agent</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('profile/player') ?>">Player Dashboard</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('profile/agent') ?>">Agent Dashboard</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('profiles') ?>">Profiles</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
-					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
-					</li>
+					<?php if (isset($_SESSION['user'])) { ?>
 
+						<?php if ($this->session->user->type == 1) { ?>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('profile/player') ?>">Dashboard</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('profiles') ?>">Profiles</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('home/logout') ?>">Logout</a>
+							</li>
+						<?php } else if ($this->session->user->type == 2) { ?>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('profile/agent') ?>">Dashboard</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('profiles') ?>">Profiles</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="<?= base_url('home/logout') ?>">Logout</a>
+							</li>
+						<?php } ?>
+
+					<?php } else { ?>
+						<li class="nav-item active">
+							<a class="nav-link" href="<?= base_url() ?>">Home</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="<?= base_url('register') ?>">Register</a>					
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+						</li>
+					<?php } ?>
 
 				</ul>
 

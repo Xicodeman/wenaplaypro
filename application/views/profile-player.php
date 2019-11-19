@@ -1,49 +1,70 @@
+	<?php 
+	$positions = ["","Goal Keeper", "Defender", "Midfielder", "Attaker"];
+	?>
+
 	<div class="container mt-60">
 		<div class="row">
-			<div class="col-2">
-				<img src="<?= base_url('assets/images/dummy.jpg') ?>" class="img-round" style="height: 80px; width: 80px;">
+			<div class="col-sm-2">
+				<img src="<?php if (!$user->photo) { echo base_url('assets/images/dummy.jpg'); } else { echo base_url('assets/images/'. $user->photo); } ?>" class="img-round" style="height: 80px; width: 80px; object-fit: cover;">
 			</div>
-			<div class="col-9">
-				<div class="heading" style="text-align: left;"> Welcome player_name </div>
+			<div class="col-sm-9">
+				<div class="heading" style="text-align: left;"> Welcome <?= $user->firstName . " " . $user->lastName ?> </div>
 			</div>
-			<div class="col-1">
-				<button class="c-btn" style="width: 100px;"> Edit </button>
+			<div class="col-sm-1">
+				<?php if ($this->session->user->id == $user->id) { ?>
+					<button class="c-btn" style="width: 100px;" onclick="window.location='<?= base_url('register/player') ?>'"> Edit </button>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
 
 	<div class="container mt-30">
 		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Name: </div>
-			<div class="col-10"> Player Name </div>
+			<div class="col-sm-2"> Name: </div>
+			<div class="col-sm-10"> <?= $user->firstName . " " . $user->lastName ?> </div>
+		</div>
+		<hr class="hxs">
+		<div class="row" style="margin-top: 5px">
+			<div class="col-sm-2"> Date of Birth: </div>
+			<div class="col-sm-10"> <?= $user->dob ?> </div>
+		</div>
+		<hr class="hxs">
+		<div class="row" style="margin-top: 5px">
+			<div class="col-sm-2"> Position: </div>
+			<div class="col-sm-10"> <?= $positions[$user->position] ?> </div>
+		</div>
+		<hr class="hxs">
+		<div class="row" style="margin-top: 5px">
+			<div class="col-sm-2"> Current Club: </div>
+			<div class="col-sm-10"> <?= $user->club ?>  </div>
 		</div>
 		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Date of Birth: </div>
-			<div class="col-10"> 22-01-1996 </div>
+			<div class="col-sm-2"> League Name: </div>
+			<div class="col-sm-10"> <?= $user->league ?>  </div>
 		</div>
-		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Position: </div>
-			<div class="col-10"> Attaker </div>
-		</div>
-		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Current Club: </div>
-			<div class="col-10"> Red Army </div>
-		</div>
-		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> League Name: </div>
-			<div class="col-10"> Morogolo Premier League </div>
-		</div>
+		<hr class="hxs">
 
 		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Personal Statement: </div>
-			<div class="col-10"> Fugit dolor, provident? Vitae vivamus rhoncus nonummy id, expedita magnam consequuntur nisi sapiente in, nibh.Fugit dolor, provident? Vitae vivamus rhoncus nonummy id, expedita magnam consequuntur nisi sapiente in, nibh. </div>
+			<div class="col-sm-2"> Personal Statement: </div>
+			<div class="col-sm-10"> <?= $user->summary ?>  </div>
 		</div>
+		<hr class="hxs">
 
 		<div class="row" style="margin-top: 5px">
-			<div class="col-2"> Video Highlight: </div>
-			<div class="col-10">Video </div>
+			<div class="col-sm-2"> Video Highlight: </div>
+			<div class="col-sm-10"> 
+				<?php 
+				if (!$user->video) {
+					echo "N/A";
+				} else { ?>
+					<video width="350" controls>
+						<source src="<?= base_url('assets/images/'. $user->video) ?>" type="video/mp4">
+							Your browser does not support HTML5 video.
+						</video>
+					<?php } ?>
+				</div>
+			</div>
 		</div>
-	</div>
 
 
 

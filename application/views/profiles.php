@@ -1,60 +1,100 @@
-<div class="">
-	
-	<div class="heading mt-15"> Players Profile </div>
+	<?php 
+	$positions = ["","Goal Keeper", "Defender", "Midfielder", "Attaker"];
+	?>
+	<div class="">
 
-	<div class="body-section">
+		<?php if ($this->session->user->type == 2 and count($rec) > 0) { ?>
+			<div class="heading mt-15"> Recommended Profiles </div>
+			<div class="body-section">
 
-		<div class="row">
+			<div class="row">
+
+				<?php foreach ($rec as $u) { ?>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+						<center>
+
+							<div class="sec">
+
+								<a href="<?= base_url('profile/player/'.$u->id) ?>"><img src="<?php if ($u->photo) { echo base_url('assets/images/'.$u->photo); } else { echo base_url('assets/images/dummy.jpg'); }  ?>" class="img-round" style="object-fit: cover;"> </a> <br> <br>
+								<div class="sec-heading"> <?= $u->firstName . " " . $u->lastName ?> </div>
+								<div class="sec-heading"> <?= $positions[$u->position] ?> </div>
+
+								<div class="sec-body" style="max-height: 100px;min-height: 100px; overflow: hidden;"> <?= $u->summary ?>  </div>
 
 
-			<?php for ($i = 0 ; $i < 12 ; $i++) { ?>
+								<button class="c-btn sc-bg mt-15 width-150" onclick="sendMail('<?= $u->email ?>')">Message</button>
 
-				<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+							</div>
 
-					<center>
+						</center>
 
-						<div class="sec">
+					</div>
+				<?php } ?>
+			</div>
+		</div>
+		<?php } ?>
 
-							<img src="<?= base_url('assets/images/dummy.jpg') ?>" class="img-round">
-							<div class="sec-heading"> Jean Rodrygo </div>
-							<div class="sec-heading"> Defender </div>
+		<div class="heading mt-15"> Players Profile </div>
 
-							<div class="sec-body"> Orci soluta eum molestiae, beatae quo ea nascetur laboris ad diamlorem. Montes, habitant maecenas laudantium. Orci soluta eum molestiae,  </div>
+		<div class="body-section">
+
+			<div class="row">
+
+				<?php foreach ($users as $u) { ?>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+
+						<center>
+
+							<div class="sec">
+
+								<a href="<?= base_url('profile/player/'.$u->id) ?>"><img src="<?php if ($u->photo) { echo base_url('assets/images/'.$u->photo); } else { echo base_url('assets/images/dummy.jpg'); }  ?>" class="img-round" style="object-fit: cover;"> </a> <br> <br>
+								<div class="sec-heading"> <?= $u->firstName . " " . $u->lastName ?> </div>
+								<div class="sec-heading"> <?= $positions[$u->position] ?> </div>
+
+								<div class="sec-body" style="max-height: 100px;min-height: 100px; overflow: hidden;"> <?= $u->summary ?>  </div>
 
 
-							<button class="c-btn sc-bg mt-15 width-150">Message</button>
+								<button class="c-btn sc-bg mt-15 width-150" onclick="sendMail('<?= $u->email ?>')">Message</button>
 
-						</div>
+							</div>
 
-					</center>
+						</center>
 
-				</div>
+					</div>
+				<?php } ?>
 
+
+
+
+
+
+			</div>
+
+			<?php if ($count > 12) {  ?>
+				<center>
+
+					<?php $nb = $count % 12 ?>
+
+					<ul class="pagination justify-content-center">
+						<?php for ($i=1; $i<=$nb; $i++) { ?>
+							<li class="page-item <?= ($i == $page) ? "active" : "" ?>"><a class="page-link" href="<?= base_url('profiles/index/'.$i) ?>"><?= $i ?></a></li>
+						<?php } ?>
+					</ul>
+
+
+				</center>
 			<?php } ?>
-
-			
-
-
-
 
 		</div>
 
-
-		<center>
-			
-			<ul class="pagination justify-content-center">
-				<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-				<li class="page-item active"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item"><a class="page-link" href="#">Next</a></li>
-			</ul>
-
-
-		</center>
-
-
 	</div>
 
-</div>
 
+	<script type="text/javascript">
+		function sendMail(email) {
+			var link = "mailto:"+email;
+
+			window.location.href = link;
+		}
+	</script>
