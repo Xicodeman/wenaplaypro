@@ -1,6 +1,4 @@
-RewriteBase /wenaplaypro/
-# If your project is in server root then should be: RewriteBase /
-# If your project is in folder then it should be: RewriteBase /foldername/
+RewriteBase /
 
 RewriteCond %{REQUEST_URI} ^system.*
 RewriteRule ^(.*)$ /index.php?/$1 [L]
