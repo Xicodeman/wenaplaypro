@@ -260,13 +260,20 @@ switch (ENVIRONMENT)
 		);
 	}
 	else
-	{l
-		header('HTTP/1.1 503 Service Unavaiable.', TRUE, 503);
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
 		exit(3); // EXIT_CONFIG
 	}
 
 	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	if (ENVIRONMENT == 'production') {
+		define('ROOTPATH', str_replace( '\\', '/', dirname(dirname(realpath(__FILE__) ).'/')));
+	} else {
+		define('ROOTPATH', str_replace( '\\', '/', dirname(realpath(__FILE__) )));
+		
+	}
 
 	// The path to the "views" directory
 	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
