@@ -19,7 +19,7 @@ $method = $this->uri->segment(2);
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<!-- Navigation -->
 	<div class="loader">
 	</div>
 
@@ -30,7 +30,7 @@ $method = $this->uri->segment(2);
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
+<!-- Navigation -->
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<?php if (isset($_SESSION['user'])) { ?>
@@ -91,6 +91,6 @@ $method = $this->uri->segment(2);
 			</div>
 
 		</nav>
-
+<!-- End of navigation -->
 		<div class="app-full-width">
 

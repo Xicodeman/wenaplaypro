@@ -3,7 +3,7 @@
 		<div class="row h-100 justify-content-center align-items-center pt-5">
 			<div class="login-container-abs width-900">
 				<div class="heading"> Welcome on WenaPlay. Create your profile </div>
-				<div class="sub-heading"> Quibusdam nihil sequi reprehenderit aliquip  placeat cupidatat ducimus. </div>
+				<div class="sub-heading"> WenaPlay, a leading matching application that helps players to sell their profile.</div>
 				<div class="rform">
 					<div class="error"></div>
 
@@ -81,7 +81,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<textarea rows="4" name="summary" class="form-control" placeholder="Type here your career summary"><?= $this->session->user->summary ?> </textarea>
+									<textarea rows="4" name="summary" class="form-control" placeholder="Type here your career summary" required=""><?= $this->session->user->summary ?> </textarea>
 								</div>
 							</div>
 						</div>
@@ -89,7 +89,7 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label> Upload your video skills <br> Fromats: .mov .mp4 .avi .mpg .vmw </label>
+									<label> Upload your video skills <br> Formats: .mov .mp4 .avi .mpg .vmw </label>
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -125,7 +125,7 @@
 		</div>
 	</div>
 
-
+<!-- Script source files -->
 	<script type="text/javascript">
 		$(".submit").submit(function(e){
 			e.preventDefault();

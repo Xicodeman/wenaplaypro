@@ -49,7 +49,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label> Bio (Max 200 words)* </label>
-									<textarea rows="6" class="form-control" name="summary" placeholder="write your personal biography here..."><?= $this->session->user->summary ?></textarea>
+									<textarea rows="6" class="form-control" name="summary" placeholder="write your personal biography here..." required=""><?= $this->session->user->summary ?></textarea>
 								</div>
 							</div>
 						</div>
