@@ -3,6 +3,7 @@
 		<div class="row h-100 justify-content-center align-items-center pb-5 pt-5">
 			<div class="login-container-abs width-900">
 				<div class="heading"> Welcome Agent. Create your profile on WenaPlay!</div>
+				<div class="sub-heading"> Join Wenaplay - a wide network in the football industry to discover the next potential signings</div>
 				<div class="rform">
 					<form class="mt-30 submit" method="post" enctype="multipart/form-data">
 							<center> <img src="<?php if (!$this->session->user->photo) { echo base_url('assets/images/dummy.jpg'); } else { echo base_url('assets/images/'. $this->session->user->photo); } ?>" class="img-round" style="height: 80px; width: 80px; object-fit: cover; margin-bottom: 30px"> </center>
@@ -31,11 +32,13 @@
 										</div>
 
 										<div class="col-md-3">
-											<input type="text" name="goals" class="form-control " placeholder="Goals" required="" value="<?= ($agent) ? $agent->goals : "" ?>">
+											<label> Goals* </label>
+											<input type="number" min="1" max="50" name="goals" class="form-control " placeholder="Goals" required="" value="<?= ($agent) ? $agent->goals : "" ?>">
 										</div>
 
 										<div class="col-md-3">
-											<input type="text" name="games" class="form-control " placeholder="Games" required="" value="<?= ($agent) ? $agent->games : "" ?>">
+											<label> Games* </label>
+											<input type="number" min="1" max="50" name="games" class="form-control " placeholder="Games" required="" value="<?= ($agent) ? $agent->games : "" ?>">
 										</div>
 
 									</div>
@@ -48,8 +51,8 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label> Bio (Max 200 words)* </label>
-									<textarea rows="6" class="form-control" name="summary" placeholder="write your personal biography here..." required=""><?= $this->session->user->summary ?></textarea>
+									<label> Personal Bio (Max 200 words)* </label>
+									<textarea rows="6" class="form-control txtarea" name="summary" placeholder="Write your personal biography here, include your career experience and ambitions..."><?= $this->session->user->summary ?></textarea>
 								</div>
 							</div>
 						</div>

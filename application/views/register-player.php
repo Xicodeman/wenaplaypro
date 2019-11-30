@@ -3,7 +3,7 @@
 		<div class="row h-100 justify-content-center align-items-center pt-5">
 			<div class="login-container-abs width-900">
 				<div class="heading"> Welcome on WenaPlay. Create your profile </div>
-				<div class="sub-heading"> WenaPlay, a leading matching application that helps players to sell their profile.</div>
+				<div class="sub-heading"> Join Wenaplay - a wide network in the football industry to boost your chance for the next team.</div>
 				<div class="rform">
 					<div class="error"></div>
 
@@ -58,13 +58,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> Goals* </label>
-											<input type="text" name="goals" class="form-control " value="<?= $this->session->user->goals ?>"  placeholder="nbr of goals" required="">
+											<input type="number" min="0" max="50" name="goals" class="form-control " value="<?= $this->session->user->goals ?>"  placeholder="nbr of goals" required="">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label> Games* </label>
-											<input type="text" name="games" class="form-control " placeholder="nbr of games" value="<?= $this->session->user->games ?>"  required="">
+											<input type="number" min="1" max="50" name="games" class="form-control " placeholder="nbr of games" value="<?= $this->session->user->games ?>"  required="">
 										</div>
 									</div>
 								</div>
@@ -89,13 +89,13 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label> Upload your video skills <br> Formats: .mov .mp4 .avi .mpg .vmw </label>
+									<label> Upload your video skills here (50MBs) <br> Formats: .mov .mp4 .avi .mpg .vmw </label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<center> <label for="uplaodVideo" style="cursor: pointer;"> <img src="<?= base_url('assets/images/upload-to-cloud.svg') ?>" height="50px"> </label> </center>
-									<input type="file" name="video" id="uplaodVideo" style="opacity: 0; position: absolute; z-index: -1 ;width: 0.1px; height: 0.1px">
+									<input type="file" name="video" accept="video/*" id="uplaodVideo" placeholder="Upload your Video">
 
 								</div>
 							</div>
