@@ -1,5 +1,5 @@
 	<?php 
-	$positions = ["","Goal Keeper", "Defender", "Midfielder", "Attaker"];
+	$positions = ["","Goal Keeper", "Defender", "Midfielder", "Attacker"];
 	?>
 
 	<div class="container mt-60">
@@ -31,17 +31,33 @@
 		<hr class="hxs">
 		<div class="row" style="margin-top: 5px">
 			<div class="col-sm-2"> Position: </div>
-			<div class="col-sm-10"> <?= $positions[$user->position] ?> </div>
+			<div class="col-sm-10"> <?= (isset($positions[$user->position])) ? $positions[$user->position] : "N/A"  ?> </div>
 		</div>
 		<hr class="hxs">
 		<div class="row" style="margin-top: 5px">
 			<div class="col-sm-2"> Current Club: </div>
 			<div class="col-sm-10"> <?= $user->club ?>  </div>
 		</div>
+		<hr class="hxs">
 		<div class="row" style="margin-top: 5px">
 			<div class="col-sm-2"> League Name: </div>
 			<div class="col-sm-10"> <?= $user->league ?>  </div>
 		</div>
+
+		<hr class="hxs">
+
+		<div class="row" style="margin-top: 5px">
+			<div class="col-sm-2"> Goals: </div>
+			<div class="col-sm-10"> <?= $user->goals ?>  </div>
+		</div>
+
+		<hr class="hxs">
+
+		<div class="row" style="margin-top: 5px">
+			<div class="col-sm-2"> Games: </div>
+			<div class="col-sm-10"> <?= $user->games ?>  </div>
+		</div>
+
 		<hr class="hxs">
 
 		<div class="row" style="margin-top: 5px">

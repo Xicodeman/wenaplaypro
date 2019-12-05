@@ -75,6 +75,15 @@ class Register extends CI_Controller {
 			echo json_encode($obj);
 			die;
 		}
+        /* PASSWORD MUST 
+        Not be common password
+        Contains at leat 1 character 
+        contains at least 1 capital letter
+        contains at least lowecase letter
+        use special charaters
+        */
+        
+        
 
 
 		$password = hash("SHA512", $salt.$password);
@@ -110,6 +119,7 @@ class Register extends CI_Controller {
 		$config['file_name']   = 'NOVA4_'.time().'_'.rand();
 		$config['allowed_types'] = 'jpg|png|jpeg|gif';
 		$config['max_size']      = 2048;
+        /* passing an array of values to the database using the upload connection group */
 		$this->load->library('upload', $config);
 		if (!$this->upload->do_upload($image)) {
 			$errorStrings = strip_tags($this->upload->display_errors());
@@ -168,6 +178,12 @@ class Register extends CI_Controller {
 					"photo" => $image['data']['file_name']
 				];
 				$this->db->update('users', $data, ["id"=>$id]);
+			} else {
+				$obj = new stdClass;
+				$obj->code = 400;
+				$obj->message = $data['error'];
+				echo json_encode($obj);
+				die;
 			}
 		}
 
@@ -179,6 +195,12 @@ class Register extends CI_Controller {
 					"video" => $video['data']['file_name']
 				];
 				$this->db->update('users', $data, ["id"=>$id]);
+			} else {
+				$obj = new stdClass;
+				$obj->code = 400;
+				$obj->message = $video['error'];
+				echo json_encode($obj);
+				die;
 			}
 		}
 
@@ -215,7 +237,7 @@ class Register extends CI_Controller {
 			}
 		}
 
-
+/* recommning players to potential agents -3 +3 */
 
 		$check = $this->db->get_where('agents_filters', ["userID"=>$id]);
 		if ($check->num_rows() == 0) {

@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/* Users do not directly access the controller class */
 class Profiles extends CI_Controller {
 	public function index($page = 1)
 	{
@@ -22,7 +22,7 @@ class Profiles extends CI_Controller {
 				$agent = $check->row();
 			}
 		}
-
+		//variable that takes an array of recommended players
 		$rec = [];
 
 		if ($agent) {
@@ -44,3 +44,5 @@ class Profiles extends CI_Controller {
 	}
 	
 }
+/* End of file profiles.php */
+/* Location: .application/controllers/Profiles.php */

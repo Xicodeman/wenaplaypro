@@ -19,7 +19,7 @@ $method = $this->uri->segment(2);
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!-- Navigation -->
+
 	<div class="loader">
 	</div>
 
@@ -30,57 +30,57 @@ $method = $this->uri->segment(2);
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-<!-- Navigation -->
+
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<?php if (isset($_SESSION['user'])) { ?>
 
 						<?php if ($this->session->user->type == 1) { ?>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('profile/player') ?>">Dashboard</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'profile') ? "active" : "" ?>" href="<?= base_url('profile/player') ?>">Dashboard</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('profiles') ?>">Profiles</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'profiles') ? "active" : "" ?>" href="<?= base_url('profiles') ?>">Profiles</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'pages' && $method == 'about') ? "active" : "" ?>" href="<?= base_url('pages/about') ?>">About Us</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'pages' && $method == 'terms') ? "active" : "" ?>" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item">
 								<a class="nav-link" href="<?= base_url('home/logout') ?>">Logout</a>
 							</li>
 						<?php } else if ($this->session->user->type == 2) { ?>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('profile/agent') ?>">Dashboard</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'profile') ? "active" : "" ?>" href="<?= base_url('profile/agent') ?>">Dashboard</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('profiles') ?>">Profiles</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'profiles') ? "active" : "" ?>" href="<?= base_url('profiles') ?>">Profiles</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'pages' && $method == 'about') ? "active" : "" ?>" href="<?= base_url('pages/about') ?>">About Us</a>
 							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+							<li class="nav-item">
+								<a class="nav-link <?= ($controller == 'pages' && $method == 'terms') ? "active" : "" ?>" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item">
 								<a class="nav-link" href="<?= base_url('home/logout') ?>">Logout</a>
 							</li>
 						<?php } ?>
 
 					<?php } else { ?>
-						<li class="nav-item active">
-							<a class="nav-link" href="<?= base_url() ?>">Home</a>
+						<li class="nav-item">
+							<a class="nav-link <?= ($controller == 'home' or !$controller) ? "active" : "" ?>" href="<?= base_url() ?>">Home</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="<?= base_url('register') ?>">Register</a>					
+						<li class="nav-item">
+							<a class="nav-link <?= ($controller == 'register') ? "active" : "" ?>" href="<?= base_url('register') ?>">Register</a>					
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="<?= base_url('pages/about') ?>">About Us</a>
+						<li class="nav-item">
+							<a class="nav-link <?= ($controller == 'pages' && $method == 'about') ? "active" : "" ?>" href="<?= base_url('pages/about') ?>">About Us</a>
 						</li>
-						<li class="nav-item active">
-							<a class="nav-link" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
+						<li class="nav-item">
+							<a class="nav-link <?= ($controller == 'pages' && $method == 'terms') ? "active" : "" ?>" href="<?= base_url('pages/terms') ?>">Terms and Conditions</a>
 						</li>
 					<?php } ?>
 
@@ -91,6 +91,6 @@ $method = $this->uri->segment(2);
 			</div>
 
 		</nav>
-<!-- End of navigation -->
+
 		<div class="app-full-width">
 

@@ -34,6 +34,7 @@
 			</div>
 		</div>
 		<?php } ?>
+        <hr>
 
 		<div class="heading mt-15"> Players Profile </div>
 
@@ -50,7 +51,7 @@
 
 								<a href="<?= base_url('profile/player/'.$u->id) ?>"><img src="<?php if ($u->photo) { echo base_url('assets/images/'.$u->photo); } else { echo base_url('assets/images/dummy.jpg'); }  ?>" class="img-round" style="object-fit: cover;"> </a> <br> <br>
 								<div class="sec-heading"> <?= $u->firstName . " " . $u->lastName ?> </div>
-								<div class="sec-heading"> <?= $positions[$u->position] ?> </div>
+								<div class="sec-heading"> <?= (isset($positions[$u->position])) ? $positions[$u->position] : "N/A"; ?> </div>
 
 								<div class="sec-body" style="max-height: 100px;min-height: 100px; overflow: hidden;"> <?= $u->summary ?>  </div>
 

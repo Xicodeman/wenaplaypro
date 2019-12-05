@@ -51,7 +51,7 @@
 
 							<div class="text mt-15"> By signing up you agree to our <a href="<?= base_url('pages/terms') ?>" class="link"> Terms and Conditions </a> </div>
 							
-							<button class="c-btn mt-30">Sign up</button>
+							<button class="c-btn mt-30 d">Sign up</button>
 
 						</form>
 					</center>
@@ -69,7 +69,15 @@
 			type: "POST",
 			url: "<?= base_url('register/submitRegister') ?>",
 			data: $(this).serialize(),
+			beforeSend: function() {
+				$(".d").attr('disabled','disabled');
+				$(".d").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+			},
 			success: function(data) {
+
+				$(".d").removeAttr('disabled');
+				$(".d").html("Sign up");
+
 				console.log(data);
 				data = JSON.parse(data);
 				if (data.code == 200) {

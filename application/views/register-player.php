@@ -3,7 +3,7 @@
 		<div class="row h-100 justify-content-center align-items-center pt-5">
 			<div class="login-container-abs width-900">
 				<div class="heading"> Welcome on WenaPlay. Create your profile </div>
-				<div class="sub-heading"> Join Wenaplay - a wide network in the football industry to boost your chance for the next team.</div>
+				<div class="sub-heading"> Join a wide network in the football industry to boost your chance for the next team.  </div>
 				<div class="rform">
 					<div class="error"></div>
 
@@ -76,12 +76,12 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label> Personal Summary <br> (Max 200 words)* </label>
+									<label> Personal Summary <br> (Max 100 words)* </label>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<textarea rows="4" name="summary" class="form-control" placeholder="Type here your career summary" required=""><?= $this->session->user->summary ?> </textarea>
+									<textarea rows="4" name="summary" class="form-control txtarea" placeholder="Type here your career summary" required=""><?= $this->session->user->summary ?> </textarea>
 								</div>
 							</div>
 						</div>
@@ -89,13 +89,13 @@
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label> Upload your video skills here (50MBs) <br> Formats: .mov .mp4 .avi .mpg .vmw </label>
+									<label> Upload your video skills here (Max 50MBs)<br> Formats: .mov .mp4 .avi .mpg .vmw </label>
 								</div>
-							</div>
+							</div>  
 							<div class="col-md-6">
 								<div class="form-group">
-									
 									<input type="file" name="video" accept="video/*" id="uplaodVideo" placeholder="Upload your Video">
+                                    
 
 								</div>
 							</div>
@@ -105,13 +105,14 @@
 							<center>
 								<video width="350" controls style="margin-top: 20px;">
 									<source src="<?= base_url('assets/images/'. $this->session->user->video) ?>" type="video/mp4">
+                                    
 										Your browser does not support HTML5 video.
 									</video>
 								</center>
 							<?php } ?>
 
 							<center>
-								<button class="c-btn mt-30">Update</button>
+								<button class="c-btn mt-30 d">Update</button>
 
 								<div class="text mt-15"> By registering you agree to our <a href="#!" class="link"> Terms and Conditions </a> </div>
 
@@ -125,7 +126,7 @@
 		</div>
 	</div>
 
-<!-- Script source files -->
+
 	<script type="text/javascript">
 		$(".submit").submit(function(e){
 			e.preventDefault();
@@ -140,17 +141,37 @@
 				method: 'POST',
 				type: 'POST', 
 				beforeSend: function() {
-					;
+					$(".d").attr('disabled','disabled');
+					$(".d").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 				},
 				success: function(data){
+					$(".d").removeAttr('disabled');
+					$(".d").html("Update");
 					console.log(data);
 					data = JSON.parse(data);
 					if (data.code == 200) {
 						window.location = "<?= base_url('profile') ?>"
 					} else {
-
+						$(".error").text(data.message);
+						$(".error").fadeIn();
 					}
 				}
 			})
+		})
+
+		$(".txtarea").keyup(function(){
+			e = $(this);
+			value = e.val();
+
+			array = value.split(" ");
+			if (array.length > 100) {
+				str = "";
+				for (i = 0; i < 100; i++) {
+					str += array[i] + " ";
+				}
+				e.val(str);
+				return
+			}
+			return;
 		})
 	</script>

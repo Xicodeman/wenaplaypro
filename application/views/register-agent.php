@@ -2,8 +2,8 @@
 	<div class="container h-100">
 		<div class="row h-100 justify-content-center align-items-center pb-5 pt-5">
 			<div class="login-container-abs width-900">
-				<div class="heading"> Welcome Agent. Create your profile on WenaPlay!</div>
-				<div class="sub-heading"> Join Wenaplay - a wide network in the football industry to discover the next potential signings</div>
+				<div class="heading"> Welcome agent. Create your profile on WenaPlay!</div>
+                <div class="sub-heading"> Join Wenaplay - a wide network in the football industry to discover the next potential signings</div>
 				<div class="rform">
 					<form class="mt-30 submit" method="post" enctype="multipart/form-data">
 							<center> <img src="<?php if (!$this->session->user->photo) { echo base_url('assets/images/dummy.jpg'); } else { echo base_url('assets/images/'. $this->session->user->photo); } ?>" class="img-round" style="height: 80px; width: 80px; object-fit: cover; margin-bottom: 30px"> </center>
@@ -52,20 +52,13 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label> Personal Bio (Max 200 words)* </label>
-									<textarea rows="6" class="form-control txtarea" required=""  name="summary" placeholder="Write your personal biography here, include your career experience and ambitions..."><?= $this->session->user->summary ?></textarea>
+									<textarea rows="6" class="form-control txtarea" name="summary" placeholder="Write your personal biography here, include your career experience and ambitions..."><?= $this->session->user->summary ?></textarea>
 								</div>
 							</div>
 						</div>
 
-
-
-
-
-
-
-
 						<center>
-							<button class="c-btn mt-30">Save</button>
+							<button class="c-btn mt-30 d">Save</button>
 
 							<div class="text mt-15"> By registering you agree to our <a href="#!" class="link"> Terms and Conditions </a> </div>
 
@@ -94,9 +87,12 @@
 				method: 'POST',
 				type: 'POST', 
 				beforeSend: function() {
-					;
+					$(".d").attr('disabled','disabled');
+					$(".d").html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
 				},
 				success: function(data){
+					$(".d").removeAttr('disabled');
+					$(".d").html("Save");
 					console.log(data);
 					data = JSON.parse(data);
 					if (data.code == 200) {
@@ -106,5 +102,21 @@
 					}
 				}
 			})
+		})
+
+		$(".txtarea").keyup(function(){
+			e = $(this);
+			value = e.val();
+
+			array = value.split(" ");
+			if (array.length > 200) {
+				str = "";
+				for (i = 0; i < 200; i++) {
+					str += array[i] + " ";
+				}
+				e.val(str);
+				return
+			}
+			return;
 		})
 	</script>
