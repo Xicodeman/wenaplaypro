@@ -78,8 +78,6 @@
 	</div>
 </div>
 
-<?php include 'includes/footer.php'; ?>
-
 <!-- Script Source files -->
 <script type="text/javascript">
 	$(".submit").submit(function(e){

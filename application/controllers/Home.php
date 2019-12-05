@@ -2,12 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+	/**
+    * Index Page for this controller. 
+    * This controller is set as the default controller in 
+    * config/routes.php
+	*/
+	// functions 
+	// Default function
+	// By default, the application run the home controller 
 	public function index()
 	{
 		if (isset($_SESSION['user'])) redirect('profile');
 		$data = [
 			"title" => "WenaPlay | Signin"
 		];
+		// loading multiple views for the home page
+		// load view file in controller, and then pass the data to the browser
+        // load and append the view files
 		$this->load->view('includes/nav', $data);
 		$this->load->view('home');
 		$this->load->view('includes/footer');

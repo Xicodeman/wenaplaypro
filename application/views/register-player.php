@@ -94,7 +94,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<center> <label for="uplaodVideo" style="cursor: pointer;"> <img src="<?= base_url('assets/images/upload-to-cloud.svg') ?>" height="50px"> </label> </center>
+									
 									<input type="file" name="video" accept="video/*" id="uplaodVideo" placeholder="Upload your Video">
 
 								</div>

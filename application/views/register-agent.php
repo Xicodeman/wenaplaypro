@@ -19,9 +19,9 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="form-group">
-									<label> Your Player Choice* </label>
 									<div class="row">
 										<div class="col-md-6">
+											<label> Your Player Choice* </label>
 											<select name="position" class="form-control"> 
 												<option selected="" disabled="" value="">Make a selection </option>
 												<option value="1" <?php if ($agent) { if ($agent->position == 1) echo "selected"; } ?>>Goal Keeper</option>
@@ -52,7 +52,7 @@
 							<div class="col-md-12">
 								<div class="form-group">
 									<label> Personal Bio (Max 200 words)* </label>
-									<textarea rows="6" class="form-control txtarea" name="summary" placeholder="Write your personal biography here, include your career experience and ambitions..."><?= $this->session->user->summary ?></textarea>
+									<textarea rows="6" class="form-control txtarea" required=""  name="summary" placeholder="Write your personal biography here, include your career experience and ambitions..."><?= $this->session->user->summary ?></textarea>
 								</div>
 							</div>
 						</div>
