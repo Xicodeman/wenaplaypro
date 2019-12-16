@@ -237,7 +237,7 @@ class Register extends CI_Controller {
 			}
 		}
 
-/* recommning players to potential agents -3 +3 */
+/* recommending players to potential agents -3 +3 */
 
 		$check = $this->db->get_where('agents_filters', ["userID"=>$id]);
 		if ($check->num_rows() == 0) {

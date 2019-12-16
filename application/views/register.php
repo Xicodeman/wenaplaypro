@@ -22,7 +22,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="email" name="email" class="form-control " placeholder="Email Address" required="">
+										<input type="email" name="email" class="form-control " placeholder="Email Address" required="" size="50">
 									</div>
 								</div>
 								<div class="col-md-6">

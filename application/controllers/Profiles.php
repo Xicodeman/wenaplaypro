@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /* Users do not directly access the controller class */
+/* index method in Profiles controller */
+/* parameter of id=1 refers to the player user-type, and id=2 refers to the agent user-type */
 class Profiles extends CI_Controller {
 	public function index($page = 1)
 	{
@@ -38,6 +40,7 @@ class Profiles extends CI_Controller {
 			"count" => $countUsers,
 			"rec" => $rec
 		];
+        // initializing class
 		$this->load->view('includes/nav', $data);
 		$this->load->view('profiles');
 		$this->load->view('includes/footer');

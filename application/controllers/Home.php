@@ -10,11 +10,13 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		if (isset($_SESSION['user'])) redirect('profile');
+        // data array represents the values we want to pass into the view
+        // Create a variable called 'title' inside the data array
 		$data = [
 			"title" => "WenaPlay | Signin"
 		];
         // load view file in controller, and then pass the data to the browser
-        // load and append the view files 
+        // load and append the view files   
 		$this->load->view('includes/nav', $data);
 		$this->load->view('home');
 		$this->load->view('includes/footer');

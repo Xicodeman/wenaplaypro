@@ -33,12 +33,12 @@
 
 										<div class="col-md-3">
 											<label> Goals* </label>
-											<input type="number" min="1" max="50" name="goals" class="form-control " placeholder="Goals" required="" value="<?= ($agent) ? $agent->goals : "" ?>">
+											<input type="number" min="1" max="50" name="goals" class="form-control " placeholder="Goals" required="" value="--">
 										</div>
 
 										<div class="col-md-3">
 											<label> Games* </label>
-											<input type="number" min="1" max="50" name="games" class="form-control " placeholder="Games" required="" value="<?= ($agent) ? $agent->games : "" ?>">
+											<input type="number" min="1" max="50" name="games" class="form-control " placeholder="Games" required="" value="--">
 										</div>
 
 									</div>

@@ -8,7 +8,7 @@
 				<img src="<?php if (!$user->photo) { echo base_url('assets/images/dummy.jpg'); } else { echo base_url('assets/images/'. $user->photo); } ?>" class="img-round" style="height: 80px; width: 80px; object-fit: cover;">
 			</div>
 			<div class="col-sm-9">
-				<div class="heading" style="text-align: left;"> Welcome <?= $user->firstName . " " . $user->lastName ?> </div>
+				<div class="heading" style="text-align: left;"> Welcome, <?= $user->firstName . " " . $user->lastName ?> </div>
 			</div>
 			<div class="col-sm-1">
 				<?php if ($this->session->user->id == $user->id) { ?>

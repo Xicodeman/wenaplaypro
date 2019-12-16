@@ -41,6 +41,7 @@ class Profile extends CI_Controller {
 		if (!$this->session->user->summary) redirect('register/agent');
 		$data = [
 			"title" => "WenaPlay | Profile"
+            
 		];
 		$this->load->view('includes/nav', $data);
 		$this->load->view('profile-agent');
