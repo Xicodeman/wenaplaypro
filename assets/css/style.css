@@ -8,8 +8,122 @@ body {
 	background: #eaedf5;
 /*	font-family: "Open Sans";*/
 }
+/* headings */
+h1, h2, h3 {
+    font-weight: 300;
+}
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+/* Line divide after the h2*/
+h2:after{
+    display: block;
+    height: 3px;
+    background-color: #e67e22;
+    content: "";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+/* headings */
+
+.feature p{
+    text-align: justify;
+}
+
+/* Add-ons */
+
+.footer-section{
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+}
+.footer-nav{
+    list-style: none;
+    float: left;
+}
+.social-links{
+    float: right;
+}
+.footer-nav li, .social-links li{
+    display: inline-block;
+    margin-right: 15px;
+}
+.footer-nav li a:link, .footer-nav li a:visited, .social-links li a:link, .social-links li a:visited{
+    text-decoration: none;
+    border: 0;
+    color: #888;
+    transition: color 0.2s; 
+}
+.footer-nav li a:hover{
+    color: #f0f0f0;
+}
+#facebook:hover{
+    color: #2f5bc7;
+}
+#twitter:hover{
+    color: #8aa4e3;
+}
+#google:hover{
+    color:#e74c3c;
+}
+#instagram:hover{
+    color: #8b8ce7;
+}
+
+#facebook, #twitter, #google, #instagram {
+    transition: color 0.2s;
+}
+.social-links li a:link, .social-links li a:visited {
+    font-size: 160%;
+}
+footer p{
+    color: #888;
+    text-align: center;
+    margin-top: 20px;
+}
+/* Back to top button*/
+.back-to-top{
+    display: none;
+    color: #e67e22;
+    position: fixed;
+    bottom: 20px;
+    font-size: 100px;
+/*    background-color: #f0f0f0;*/
+    padding: 10px;
+    right: 20px;
+}
+/*  GRID COLUMN SETUP   ==================================================================== */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+/*  GRID OF TWO   ============================================================================= */
 
 
+.span-2-of-2 {
+	width: 100%;
+}
+
+.span-1-of-2 {
+	width: 47.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.span-2-of-2 {
+		width: 100%; 
+	}
+	.span-1-of-2 {
+		width: 100%; 
+	}
+}
+
+/* End add-ons */
 .navbar {
 	background: #fff;
 	padding: 12px 100px;
@@ -205,6 +319,30 @@ label {
 	display: none;
 	border-radius: 5px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+	transition: all .3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	color: #47525e;
+	font-weight: bold;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+	color: #47525e;
+	font-weight: bold;
+}
+
+/* Icons */
+.icon-big{
+    font-size: 350%;
+    display: block;
+    color: #000000;
+    margin-bottom: 10px;
+    margin-left: 45%;
+}
+
 
 @media (max-width: 720px) {
 	.navbar {
